@@ -1,1 +1,7 @@
 project_id = "koezxuwjhmyhuovoqumn"
+
+[functions.send-emergency-alert]
+verify_jwt = true
+
+[functions.get-safety-recommendations]
+verify_jwt = false

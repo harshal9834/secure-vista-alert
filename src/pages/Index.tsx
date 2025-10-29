@@ -51,13 +51,13 @@ const Index = () => {
               <span className="text-xl font-bold text-foreground">SafeTourism</span>
             </div>
             <div className="flex items-center gap-4">
-              <Button variant="ghost" onClick={() => navigate("/tourist-app")}>
+              <Button variant="ghost" onClick={() => navigate("/auth")}>
                 Tourist App
               </Button>
               <Button variant="ghost" onClick={() => navigate("/admin")}>
                 Admin Portal
               </Button>
-              <Button variant="hero" onClick={() => navigate("/register")}>
+              <Button variant="hero" onClick={() => navigate("/auth")}>
                 Get Started
               </Button>
             </div>
@@ -88,10 +88,10 @@ const Index = () => {
               blockchain identity, and real-time emergency response
             </p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
-              <Button variant="hero" size="lg" onClick={() => navigate("/register")}>
+              <Button variant="hero" size="lg" onClick={() => navigate("/auth")}>
                 Register as Tourist
               </Button>
-              <Button variant="outline" size="lg" onClick={() => navigate("/tourist-app")}>
+              <Button variant="outline" size="lg" onClick={() => navigate("/auth")}>
                 Launch Tourist App
               </Button>
             </div>
@@ -201,7 +201,7 @@ const Index = () => {
             Join thousands of tourists who trust our platform for their safety
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Button variant="hero" size="lg" onClick={() => navigate("/register")}>
+            <Button variant="hero" size="lg" onClick={() => navigate("/auth")}>
               Register Now
             </Button>
             <Button variant="outline" size="lg" onClick={() => navigate("/admin")}>
