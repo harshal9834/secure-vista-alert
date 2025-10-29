@@ -1,43 +1,37 @@
-import { Card } from "@/components/ui/card";
+"use client";
+
+import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { Activity } from "lucide-react";
 
-interface SafetyScoreCardProps {
-  score: number;
-}
-
-const SafetyScoreCard = ({ score }: SafetyScoreCardProps) => {
-  const getScoreLabel = (score: number) => {
-    if (score >= 80) return "Excellent";
-    if (score >= 60) return "Good";
-    if (score >= 40) return "Fair";
-    return "Needs Attention";
-  };
+export default function SafetyScoreCard() {
+  const score = 85; // Example static value; replace with dynamic data later
+  const statusLabel =
+    score >= 80 ? "Excellent" : score >= 60 ? "Good" : "Needs Improvement";
 
   return (
-    <Card className="p-6 bg-gradient-to-br from-success/10 to-success/5 border-success/20 shadow-[var(--shadow-medium)]">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <div className="rounded-full bg-success/20 p-3">
-            <Activity className="h-6 w-6 text-success" />
-          </div>
-          <div>
-            <h3 className="font-semibold text-foreground">Safety Score</h3>
-            <p className="text-sm text-muted-foreground">AI-powered assessment</p>
-          </div>
+    <Card className="p-6 flex items-center justify-between rounded-xl shadow-sm">
+      <div>
+        {/* Title + Icon */}
+        <div className="flex items-center space-x-2">
+          <Activity className="h-5 w-5 text-muted-foreground" />
+          <h3 className="text-lg font-semibold">Safety Score</h3>
         </div>
-        <div className="text-right">
-          <div className="text-4xl font-bold text-success">{score}</div>
-          <p className="text-xs text-muted-foreground">{getScoreLabel(score)}</p>
+
+        {/* Subtitle */}
+        <p className="text-sm text-muted-foreground">AI-powered assessment</p>
+
+        {/* Progress Line */}
+        <div className="mt-4 w-64">
+          <Progress value={score} />
         </div>
       </div>
-      <div className="w-full bg-muted rounded-full h-2">
-        <div
-          className="bg-success h-2 rounded-full transition-all duration-500"
-          style={{ width: `${score}%` }}
-        />
+
+      {/* Score and Rating */}
+      <div className="text-right">
+        <p className="text-4xl font-bold">{score}</p>
+        <p className="text-sm text-muted-foreground">{statusLabel}</p>
       </div>
     </Card>
   );
-};
-
-export default SafetyScoreCard;
+}
